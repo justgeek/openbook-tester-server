@@ -14,7 +14,7 @@ export class QueriesService {
   async create(createQueryDto: CreateQueryDto): Promise<Query> {
     return new this.queryModel({
       ...createQueryDto,
-      answers: null,
+      lastApprovedAnswer: null,
     }).save();
   }
 
@@ -26,17 +26,11 @@ export class QueriesService {
     return this.queryModel.findById(id);
   }
 
-  async updateAnswer(
-    id: string,
-    artifactId: string,
-    updateQueryDto: UpdateQueryDto,
-  ) {
-    const queryAnswers = await this.queryModel.findById(id);
-    const { answers } = queryAnswers;
+  async updateApprovedAnswer(id: string, updateQueryDto: UpdateQueryDto) {
     return this.queryModel.updateOne(
       { id },
       {
-        $set: { answers: { ...answers, [artifactId]: { ...updateQueryDto } } },
+        $set: { lastApprovedAnswer: { ...updateQueryDto } },
       },
     );
   }

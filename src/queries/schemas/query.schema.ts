@@ -27,7 +27,7 @@ export class Query {
   @Prop()
   body: string;
   @Prop(raw({}))
-  answers: Record<string, QueryAnswer>;
+  lastApprovedAnswer: QueryAnswer;
   @Prop()
   status: string;
 }

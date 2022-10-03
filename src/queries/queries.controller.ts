@@ -35,13 +35,12 @@ export class QueriesController {
     return this.queriesService.update(+id, updateQueryDto);
   }
 
-  @Patch(':id/answers/:artifactId')
-  updateAnswer(
+  @Patch(':id/answer')
+  updateApprovedAnswer(
     @Param('id') id: string,
-    @Param('artifactId') artifactId: string,
     @Body() updateQueryDto: UpdateQueryDto,
   ) {
-    return this.queriesService.updateAnswer(id, artifactId, updateQueryDto);
+    return this.queriesService.updateApprovedAnswer(id, updateQueryDto);
   }
 
   @Delete(':id')
