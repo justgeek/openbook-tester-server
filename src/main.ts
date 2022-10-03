@@ -29,6 +29,6 @@ async function bootstrap() {
   });
   // Exceptional to bypass CORS (!!!!! Not Production Friendly !!!!) <<<<<<<<
 
-  await app.listen(process.env.PORT);
+  await app.listen(process.env.PORT || 80);
 }
 bootstrap();
