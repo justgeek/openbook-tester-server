@@ -30,6 +30,7 @@ async function bootstrap() {
   // Exceptional to bypass CORS (!!!!! Not Production Friendly !!!!) <<<<<<<<
   const SERVER_PORT = process.env.PORT || 80;
   const SERVER_HOST = process.env.HOST || '0.0.0.0';
+  console.log(process.env.PORT);
   await app.listen(SERVER_PORT, SERVER_HOST);
 }
 bootstrap();
